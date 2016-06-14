@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SpotifyViewer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="artist_name">Artist Name</string>
+    <string name="search">search</string>
+</resources>
