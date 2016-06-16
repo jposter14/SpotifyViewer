@@ -63,6 +63,8 @@ public class SpotifyArtistFragment extends Fragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //Hide keyboard
         View view = getActivity().getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -87,16 +89,12 @@ public class SpotifyArtistFragment extends Fragment {
         ServiceManager.Spotify.spotifyService.getArtist(artistName).enqueue(new Callback<Example>() {
             @Override
             public void onResponse(Call<Example> call, Response<Example> response) {
-                Log.d("in load artists", "on response");
-
                 Example example = response.body();
                 artists = example.getArtists();
                 artistList = artists.getItems();
                 if (artistList != null) {
-                    Timber.tag("onResponse").d("artists is no null");
                     updateArtists(artistList);
                 } else {
-                    Log.d("in load artists", "artists were null");
                     Timber.tag("onResponse").d("artist null");
                 }
             }
@@ -104,7 +102,6 @@ public class SpotifyArtistFragment extends Fragment {
             @Override
             public void onFailure(Call<Example> call, Throwable t) {
                 Log.d("in load artists", String.valueOf(t));
-
                 Timber.tag("onResponse").d("failure");
             }
         });

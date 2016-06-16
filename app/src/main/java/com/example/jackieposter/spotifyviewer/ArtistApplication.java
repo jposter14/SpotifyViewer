@@ -14,8 +14,6 @@ public class ArtistApplication extends Application {
     public static String artistName;
     public static String imageUrl;
 
-    //public static EventBus bus;
-
     public ArtistApplication() {
     }
 
@@ -52,13 +50,6 @@ public class ArtistApplication extends Application {
         artistDetailIntent.putExtra(EXTRA_INFO, artistInfo);
         artistDetailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(artistDetailIntent);
-
-
-//        Images images = artistClicked.getImages();
-//        Object href = images.getHref();
-//        String url = href.toString();
-//        int imageDimen = this.getResources().getDimensionPixelSize(R.dimen.artist_image_size);
-//        //use picasso
 
     }
 

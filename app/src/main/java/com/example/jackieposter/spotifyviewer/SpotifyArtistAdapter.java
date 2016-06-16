@@ -20,7 +20,6 @@ public class SpotifyArtistAdapter extends RecyclerView.Adapter<SpotifyArtistAdap
 
     private Context context;
     private List<Item> artists;
-    private Item currItem;
 
 
     public SpotifyArtistAdapter(Context context, List<Item> artists) {
@@ -37,7 +36,7 @@ public class SpotifyArtistAdapter extends RecyclerView.Adapter<SpotifyArtistAdap
 
     @Override
     public void onBindViewHolder(SpotifyArtistAdapter.ViewHolder holder, int position) {
-        currItem = artists.get(position);
+        Item currItem = artists.get(position);
         holder.configureViews(currItem);
     }
 
@@ -63,8 +62,6 @@ public class SpotifyArtistAdapter extends RecyclerView.Adapter<SpotifyArtistAdap
         }
 
         public void configureViews(Item item) {
-            Log.d("in configure view", "in configure view");
-
             Log.d("artist name: ", item.getName() );
             artistNameView.setText(item.getName());
         }
